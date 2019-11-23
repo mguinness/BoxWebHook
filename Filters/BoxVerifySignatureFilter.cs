@@ -46,6 +46,11 @@ namespace Microsoft.AspNetCore.WebHooks.Filters
                     return;
                 }
             }
+            else
+            {
+                await next();
+                return;
+            }
 
             var secretKey = GetSecretKey(ReceiverName, routeData, BoxConstants.SecretKeyMinLength, BoxConstants.SecretKeyMaxLength);
             if (secretKey == null)
@@ -83,7 +88,7 @@ namespace Microsoft.AspNetCore.WebHooks.Filters
             var eventName = data.Value<string>(BoxConstants.EventPropertyName);
             routeData.Values[WebHookConstants.EventKeyName] = eventName;
 
-            var idName = data["source"].Value<string>(BoxConstants.IdPropertyName);
+            var idName = data["webhook"].Value<string>(BoxConstants.IdPropertyName);
             routeData.Values[WebHookConstants.IdKeyName] = idName;
 
             await next();
