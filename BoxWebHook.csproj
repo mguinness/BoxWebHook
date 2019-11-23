@@ -8,6 +8,8 @@
     <PackageTags>aspnetcore webhook box</PackageTags>
     <Product>Box Webhook</Product>
     <RepositoryUrl>https://github.com/mguinness/BoxWebHook</RepositoryUrl>
+    <Version>1.0.1</Version>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
