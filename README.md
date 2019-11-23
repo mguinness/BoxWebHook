@@ -40,7 +40,8 @@ public class BoxController : ControllerBase
     {
         if (ModelState.IsValid)
         {
-            Console.WriteLine("Trigger {Event} for {Id} with payload {Data}", @event, id, data);
+            //https://developer.box.com/en/guides/webhooks/handle/payload/#payload-body
+            Console.WriteLine("Trigger {0} for {1} with payload {2}", @event, id, data);
             return NoContent();
         }
         else
